@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "live_keys": {
+      "equals": 96
+    },
+    "model_matches": {
+      "equals": true
+    },
+    "reads": {
+      "equals": 96
+    },
+    "writes": {
+      "equals": 96
+    }
+  },
+  "rationale": "Flush a small memtable into immutable sorted tables.",
+  "synthetic": true
+}
