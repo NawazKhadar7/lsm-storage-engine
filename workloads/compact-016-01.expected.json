@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "live_keys": {
+      "equals": 16
+    },
+    "model_matches": {
+      "equals": true
+    },
+    "reads": {
+      "equals": 16
+    },
+    "tables": {
+      "equals": 1
+    },
+    "writes": {
+      "equals": 16
+    }
+  },
+  "rationale": "Merge multiple tables without resurrecting deleted records.",
+  "synthetic": true
+}
