@@ -1,0 +1,47 @@
+{
+  "algorithm": "Sequence numbers select the newest version. WAL persists before memtable mutation. Flush publishes the durable SST then updates the manifest before resetting the WAL. Compaction writes a replacement and publishes the manifest before deleting old tables. Reference: https://www.cs.umb.edu/~poneil/lsmtree.pdf .",
+  "architecture": "Mutation \u2192 durable WAL \u2192 MemTable. Flush \u2192 immutable SST \u2192 durable manifest checkpoint. Get merges memtable/table versions. Recovery replays WAL records newer than the checkpoint.",
+  "data_model": "WAL record = sequence, key, value, deleted. SST payload includes sorted key versions and a Bloom bitmap. Manifest lists authoritative tables, checkpoint and generation.",
+  "description": "A durable local single-writer engine with checksummed WAL frames, immutable tables, Bloom filters and manifest-based compaction.",
+  "design": "Keep tombstones during compaction to make deletion semantics explicit. Orphan files are ignored; only manifest-listed tables are authoritative. A torn tail differs from corruption of a complete frame.",
+  "families": [
+    "overwrite",
+    "delete",
+    "flush",
+    "compact",
+    "recover",
+    "torn-wal"
+  ],
+  "family_notes": [
+    "Overwrite repeated keys and preserve the latest sequence.",
+    "Apply tombstones and compare against an independent dictionary.",
+    "Flush a small memtable into immutable sorted tables.",
+    "Merge multiple tables without resurrecting deleted records.",
+    "Restart using the WAL and append another durable record.",
+    "Discard only an incomplete trailing WAL frame and preserve subsequent recovery."
+  ],
+  "file_count": 165,
+  "limitations": "Python single-writer reference, not a distributed C++/Rust database. SST files are JSON and read in full, so lookup performance is intentionally limited. No cross-process locking, replication, snapshots, concurrent reads during writes, memory mapping or background compaction. Incomplete final WAL frames are truncated; complete checksum corruption fails closed.",
+  "numpy": false,
+  "operations": "Use a private directory and one writer. Back up manifest and listed tables together. Test filesystem-specific durability before promising crash guarantees on remote or unusual filesystems.",
+  "scope": "POSIX-style fsync, checksummed framed WAL, in-memory latest records, sorted checksummed SST files, Bloom lookups, atomic manifest updates, full-table compaction and restart recovery.",
+  "security": "Treat this as educational code; review it before handling trusted data.",
+  "sizes": [
+    16,
+    32,
+    48,
+    64,
+    96,
+    128
+  ],
+  "slug": "lsm-storage-engine",
+  "title": "Log-Structured Merge-Tree Storage Engine",
+  "topics": [
+    "lsm-tree",
+    "storage-engine",
+    "wal",
+    "databases",
+    "systems"
+  ],
+  "workload_count": 36
+}
