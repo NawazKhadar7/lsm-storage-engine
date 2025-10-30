@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "live_keys": {
+      "equals": 97
+    },
+    "model_matches": {
+      "equals": true
+    },
+    "reads": {
+      "equals": 96
+    },
+    "writes": {
+      "equals": 96
+    }
+  },
+  "rationale": "Restart using the WAL and append another durable record.",
+  "synthetic": true
+}
