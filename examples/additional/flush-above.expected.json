@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "live_keys": {
+      "equals": 9
+    },
+    "model_matches": {
+      "equals": true
+    },
+    "reads": {
+      "equals": 9
+    },
+    "recovered": {
+      "equals": false
+    },
+    "tables": {
+      "equals": 1
+    },
+    "writes": {
+      "equals": 9
+    }
+  },
+  "rationale": "One table and a remaining memtable entry must read consistently.",
+  "synthetic": true
+}
