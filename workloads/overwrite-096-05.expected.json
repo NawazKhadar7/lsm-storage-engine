@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "live_keys": {
+      "equals": 24
+    },
+    "model_matches": {
+      "equals": true
+    },
+    "reads": {
+      "equals": 96
+    },
+    "writes": {
+      "equals": 96
+    }
+  },
+  "rationale": "Overwrite repeated keys and preserve the latest sequence.",
+  "synthetic": true
+}
