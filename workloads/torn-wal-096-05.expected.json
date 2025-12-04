@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "live_keys": {
+      "equals": 97
+    },
+    "model_matches": {
+      "equals": true
+    },
+    "reads": {
+      "equals": 96
+    },
+    "writes": {
+      "equals": 96
+    }
+  },
+  "rationale": "Discard only an incomplete trailing WAL frame and preserve subsequent recovery.",
+  "synthetic": true
+}
