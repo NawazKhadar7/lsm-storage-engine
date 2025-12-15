@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "live_keys": {
+      "equals": 4
+    },
+    "model_matches": {
+      "equals": true
+    },
+    "reads": {
+      "equals": 3
+    },
+    "recovered": {
+      "equals": true
+    },
+    "tables": {
+      "equals": 1
+    },
+    "writes": {
+      "equals": 3
+    }
+  },
+  "rationale": "Original keys and the recovery append survive both restarts.",
+  "synthetic": true
+}
