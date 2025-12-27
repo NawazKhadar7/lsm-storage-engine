@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "live_keys": {
+      "equals": 85
+    },
+    "model_matches": {
+      "equals": true
+    },
+    "reads": {
+      "equals": 128
+    },
+    "writes": {
+      "equals": 128
+    }
+  },
+  "rationale": "Apply tombstones and compare against an independent dictionary.",
+  "synthetic": true
+}
