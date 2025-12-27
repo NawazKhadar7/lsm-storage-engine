@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "live_keys": {
+      "equals": 4
+    },
+    "model_matches": {
+      "equals": true
+    },
+    "reads": {
+      "equals": 7
+    },
+    "recovered": {
+      "equals": false
+    },
+    "tables": {
+      "equals": 0
+    },
+    "writes": {
+      "equals": 7
+    }
+  },
+  "rationale": "Deleting keys zero, three, and six leaves four live keys.",
+  "synthetic": true
+}
