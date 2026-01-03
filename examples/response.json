@@ -1,0 +1,19 @@
+{
+  "metrics": {
+    "live_keys": 4,
+    "model_matches": true,
+    "reads": 16,
+    "recovered": false,
+    "tables": 0,
+    "writes": 16
+  },
+  "output": {
+    "sample": {
+      "k0": 12,
+      "k1": 13,
+      "k2": 14,
+      "k3": 15
+    },
+    "single_writer": true
+  }
+}
