@@ -1,0 +1,24 @@
+{
+  "operations": [
+    {
+      "key": "a",
+      "op": "put",
+      "value": 1
+    },
+    {
+      "op": "flush"
+    },
+    {
+      "key": "a",
+      "op": "delete"
+    },
+    {
+      "op": "compact"
+    },
+    {
+      "expected": null,
+      "key": "a",
+      "op": "get"
+    }
+  ]
+}
